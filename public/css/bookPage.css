@@ -1,0 +1,52 @@
+/* Horizontal image styles */
+.horizontal-image {
+  width: 100%;
+}
+
+/* Book container styles */
+.book-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Book image styles */
+.book-image {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Book details styles */
+.book-details {
+  margin-top: 20px;
+}
+
+/* Link section styles */
+.link-section {
+  margin-top: 20px;
+}
+
+/* Text field styles */
+#bookLink {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Copy button styles */
+#copyButton {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#copyButton:hover {
+  background-color: #45a049;
+}

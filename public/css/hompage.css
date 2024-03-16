@@ -1,0 +1,85 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Main styles */
+main {
+  padding: 20px;
+}
+
+.book-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.book-card {
+  width: 300px;
+  background-color: #e0e0a5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.book-card:hover {
+  transform: scale(1.05);
+}
+
+.book-card img {
+  width: 100%;
+}
+
+.book-card h2 {
+  font-size: 18px;
+  margin: 10px;
+  color: #645038;
+}
+
+.book-card .price {
+  color: #00c;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.book-card .description {
+  margin: 0 10px 10px 10px;
+  color: #000000;
+}
+
+.add-to-cart {
+  background-color: #d4da3c;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: block;
+  margin: 0 auto; /* Center the button horizontally */
+}
+
+.add-to-cart:hover {
+  background-color: #e0e0a5;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}

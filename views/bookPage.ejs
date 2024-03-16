@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Page</title>
+    <link rel="stylesheet" href="/css/bookPage.css" />
+  </head>
+  <body>
+    <%- include ('includes/header.ejs') %>
+    <div>
+      <img
+        src="/img/horizontalImage.jpg"
+        class="horizontal-image"
+        alt="Horizontal Image"
+      />
+
+      <div class="book-container">
+        <img src="<%= imgPath %>" class="book-image" alt="Book Image" />
+        <div class="book-details">
+          <h2><%= bookTitle %></h2>
+          <p class="price">$<%= price %></p>
+          <p class="description"><%= longDesc %></p>
+        </div>
+        <div class="link-section">
+          <input type="text" id="bookLink" value="<%= link %>" />
+          <button id="copyButton">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <%- include ('includes/footer.ejs') %>
+
+    <script src="/js/bookPage.js" defer></script>
+  </body>
+</html>

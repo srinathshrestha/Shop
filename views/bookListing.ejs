@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Listing Page</title>
+    <link rel="stylesheet" href="/css/bookListing.css" />
+  </head>
+  <body>
+    <%- include ('includes/header.ejs') %>
+    <div class="image-container"></div>
+
+    <main>
+      <section class="book-form">
+        <h2>Add New Book</h2>
+        <form action="/add-book" method="POST">
+          <div class="form-group">
+            <label for="book-name">Book Name:</label>
+            <input type="text" id="book-name" name="book-name" required />
+          </div>
+          <div class="form-group">
+            <label for="book-price">Price:</label>
+            <input type="number" id="book-price" name="book-price" required />
+          </div>
+          <div class="form-group">
+            <label for="book-short-desc">Short Description:</label>
+            <textarea
+              id="book-short-desc"
+              name="book-short-desc"
+              rows="2"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="book-long-desc">Long Description:</label>
+            <textarea
+              id="book-long-desc"
+              name="book-long-desc"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="book-image">Book Image:</label>
+            <input
+              type="file"
+              id="book-image"
+              name="book-image"
+              accept="image/*"
+              required
+            />
+          </div>
+          <button type="submit" id="submitbtn">Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <%- include ('includes/footer.ejs') %>
+
+    <script src="/js/bookListing.js"></script>
+  </body>
+</html>

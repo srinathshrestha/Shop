@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/hompage.css" />
+  </head>
+  <body>
+    <div class="screen">
+      <%- include ('includes/header.ejs') %>
+      <main>
+        <section class="book-cards">
+          <% prods.forEach(function(book, index) { %>
+          <div class="book-card" onclick="redirectToBookPage('<%= book.id %>')">
+            <img src="/img/book<%= index + 1 %>.jpg" alt="<%= book.title %>" />
+            <div>
+              <h2><%= book.title %></h2>
+              <p class="price"><%= book.price %></p>
+              <p class="description"><%= book.shortDesc %></p>
+              <form action="/add-to-cart" method="POST">
+                <input type="hidden" name="productId" value="<%= book.id %>" />
+                <button type="submit" class="add-to-cart">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+          <%})%>
+        </section>
+      </main>
+      <%- include ('includes/footer.ejs') %>
+    </div>
+    <script src="/js/bookRedirect.js" defer></script>
+  </body>
+</html>

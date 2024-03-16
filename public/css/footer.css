@@ -1,0 +1,11 @@
+/* Footer styles */
+footer {
+  background-color: #348494;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto; /* Move the footer to the bottom */
+  position: fixed; /* Fix the footer position */
+  bottom: 0; /* Stick the footer to the bottom */
+  width: 100%; /* Make the footer full-width */
+}

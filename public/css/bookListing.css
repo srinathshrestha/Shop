@@ -1,0 +1,51 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+/* Main styles */
+main {
+  padding: 20px;
+}
+
+.image-container {
+  width: 100%;
+  height: 200px; /* Set the height as needed */
+  background-image: url("/img/book.jpg"); /* Adjust the path */
+  background-size: cover;
+  background-position: center;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #348494; /* New color */
+  border-radius: 5px;
+}
+
+form textarea {
+  height: 100px; /* Adjust as needed */
+}
+
+button[type="submit"] {
+  background-color: #d4da3c; /* New color */
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #e0e0a5; /* New color */
+}
