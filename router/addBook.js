@@ -1,4 +1,3 @@
-const rootDir = require("../util/path");
 const express = require("express");
 const adminData = require("./admin");
 const router = express.Router(); // Create a router object

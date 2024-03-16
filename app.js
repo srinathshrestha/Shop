@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const rootDir = require("./util/path");
 const homepageRoutes = require("./router/homepage");
 const listBookRoutes = require("./router/addBook");
 const registerRoutes = require("./router/register");
@@ -12,7 +11,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(rootDir + "/public"));
+app.use(express.static(__dirname + "/public"));
 
 // routes
 app.use(bookPageRoutes);
