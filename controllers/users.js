@@ -7,7 +7,7 @@ exports.postLoginPage = (req, res) => {
 };
 
 exports.getRegisterPage = (req, res) => {
-  res.render("login");
+  res.render("register");
 };
 
 exports.postRegisterPage = (req, res) => {

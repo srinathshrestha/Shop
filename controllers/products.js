@@ -1,63 +1,4 @@
-// const Product = require("../models/product");
-let products = [
-  {
-    id: 1,
-    title: "Harry Potter",
-    price: 100,
-    shortDesc:
-      "Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.",
-    longDesc:
-      "The novels chronicle the lives of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and Wizardry.",
-  },
-  {
-    id: 2,
-    title: "The Alchemist",
-    price: 150,
-    shortDesc:
-      "The Alchemist is a novel by Brazilian author Paulo Coelho that was first published in 1988.",
-    longDesc:
-      "Originally written in Portuguese, it became a widely translated international bestseller. An allegorical novel, The Alchemist follows a young Andalusian shepherd in his journey to the pyramids of Egypt, after having a recurring dream of finding a treasure there.",
-  },
-  {
-    id: 3,
-    title: "The Da Vinci Code",
-    price: 200,
-    shortDesc:
-      "The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown.",
-    longDesc:
-      "It follows symbologist Robert Langdon and cryptologist Sophie Neveu after ",
-  },
-
-  {
-    id: 4,
-    title: "The Great Gatsby",
-    price: 250,
-    shortDesc:
-      "The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald.",
-    longDesc:
-      "Set in the Jazz Age on Long Island, near New York City, the novel depicts first-person narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan.",
-  },
-  {
-    id: 5,
-    title: "The Catcher in the Rye",
-    price: 300,
-    shortDesc:
-      "The Catcher in the Rye is a novel by J. D. Salinger, partially published in serial form in 1945–1946 and as a novel in 1951.",
-    longDesc:
-      "It was originally intended for adults, but is often read by adolescents for its themes of angst, alienation, and as a critique on superficiality in society.",
-  },
-  {
-    id: 6,
-    title: "The Hobbit",
-    price: 350,
-    shortDesc:
-      "The Hobbit, or There and Back Again is a children's fantasy novel by English author J. R. R. Tolkien.",
-    longDesc:
-      "It was published on 21 September 1937 to wide critical acclaim, being nominated for the Carnegie Medal and awarded a prize from the New York Herald Tribune for best juvenile fiction.",
-  },
-];
-
-exports.products = products;
+const Product_class = require("../models/product");
 
 exports.getaddProductPage = (req, res) => {
   res.render("bookListing");
@@ -65,20 +6,22 @@ exports.getaddProductPage = (req, res) => {
 exports.postAddProduct = (req, res) => {
   // Generate a random number between 1000 and 9999
   const randomNumber = Math.floor(Math.random() * 9000) + 1000;
-
-  products.push({
-    id: randomNumber,
-    title: req.body.title,
-    price: req.body.price,
-    shortDesc: req.body.shortDesc,
-    longDesc: req.body.longDesc,
-  });
+  const product = new Product_class(
+    randomNumber,
+    req.body.title,
+    req.body.price,
+    req.body.shortDesc,
+    req.body.longDesc
+  );
+  product.save();
   res.redirect("/");
 };
+
+const prods = Product_class.fetchAll();
 exports.bookRoute = (req, res) => {
   const bookId = req.params.id;
   //   console.log(bookId);
-  const product = products.find((book) => book.id == bookId);
+  const product = prods.find((book) => book.id == bookId);
   if (!product) {
     return res.status(404).render("404");
   }
@@ -88,17 +31,17 @@ exports.bookRoute = (req, res) => {
     bookTitle: product.title,
     price: product.price,
     longDesc: product.longDesc,
-    link: `/book/${product.id}`, // Assuming you want the link to be the same as the book page URL
+    link: `link`,
   });
 };
 
 // hompage controller
 exports.homePage = (req, res, next) => {
   res.render("homepage", {
-    prods: products,
+    prods: prods,
     pageTitle: "Online book store",
     path: "/",
-    hasProducts: products.length > 0,
+    hasProducts: prods.length > 0,
     activeShop: true,
     productCSS: true,
   });
