@@ -1,13 +1,9 @@
 const express = require("express");
 const router = express.Router(); // Create a router object
+const userControllers = require("../controllers/users");
 
-router.get("/register", (req, res) => {
-  res.render("login");
-});
+router.get("/register", userControllers.getRegisterPage);
 
-router.post("/register-post", (req, res) => {
-  console.log(req.body);
-  res.redirect("/login");
-});
+router.post("/register-post", userControllers.postRegisterPage);
 
 module.exports = router;
