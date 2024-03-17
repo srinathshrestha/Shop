@@ -1,6 +1,14 @@
 /* Horizontal image styles */
+
+.image-container {
+  padding-top: 300px; /* Adjust the value to create space between the navbar and the image */
+}
+
 .horizontal-image {
   width: 100%;
+  height: 300px; /* Adjust the height as needed */
+  object-fit: cover;
+  margin-top: -300px; /* Adjust the value to control the amount of cropping from the top */
 }
 
 /* Book container styles */

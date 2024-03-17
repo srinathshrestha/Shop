@@ -4,8 +4,6 @@ exports.getaddProductPage = (req, res) => {
   res.render("bookListing");
 };
 
-// In your controller
-
 exports.postAddProduct = (req, res) => {
   // Generate a random number between 1000 and 9999
   const randomNumber = Math.floor(Math.random() * 9000) + 1000;

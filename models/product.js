@@ -35,20 +35,13 @@ module.exports = class Product {
     });
   }
   static fetchAll(cb) {
-    const p = path.join(
-      path.dirname(process.mainModule.filename),
-      "data",
-      "products.json"
-    );
-    fs.readFile(p, (err, fileContent) => {
-      if (err) {
-        cb([]);
-      }
-      cb(JSON.parse(fileContent));
-    });
+    getProductsFromFile(cb);
   }
 
-  static findById(id) {
-    return products.find((p) => p.id === id);
+  static findById(id, cb) {
+    getProductsFromFile((products) => {
+      const product = products.find((p) => p.id === id);
+      cb(product);
+    });
   }
 };
